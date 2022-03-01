@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-20 13:32:22
- * @LastEditTime: 2022-02-25 20:43:09
+ * @LastEditTime: 2022-03-01 19:49:18
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /data_check_UI/src/framework/app-init.js
@@ -51,12 +51,12 @@ NCP.interceptor.response.use(
       return res
     } else {
       if (data.hasOwnProperty('code')) {
-        if (data.code == '-4') {
+        if (data.code === '-4') {
           // 超时，直接将信息发送给 portal，hsa-seed 不做任何处理
           portalMessageSend.notifySessionTimeout({
             content: 'session timeout'
           })
-        } else if (data.code != '0') {
+        } else if (data.code !== '0') {
           return Promise.reject(new Error(JSON.stringify(data) || 'Error'))
         } else {
           return data.data
@@ -72,17 +72,17 @@ NCP.interceptor.response.use(
     // 如果是开发模式则在控制台输出完整的错误信息
     printErr('请求错误：' + err)
     // 对于客户端的错误进行提示，服务端的错误一律提示“网络错误”
-    if (err.response.status == '400') {
+    if (err.response.status === '400') {
       return Promise.reject(new Error('请求有误，当前请求无法被服务器理解！'))
-    } else if (err.response.status == '401') {
+    } else if (err.response.status === '401') {
       return Promise.reject(new Error('当前请求需要用户验证！'))
-    } else if (err.response.status == '403') {
+    } else if (err.response.status === '403') {
       return Promise.reject(new Error('该用户无权访问此接口！'))
-    } else if (err.response.status == '404') {
+    } else if (err.response.status === '404') {
       return Promise.reject(
         new Error('请求所希望得到的资源未被在服务器上发现！')
       )
-    } else if (err.response.status == '405') {
+    } else if (err.response.status === '405') {
       return Promise.reject(
         new Error('请求有误，该请求方法不能被用于请求相应的资源。')
       )

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-20 13:32:22
- * @LastEditTime: 2022-02-25 21:45:52
+ * @LastEditTime: 2022-03-01 19:50:20
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /data_check_UI/src/framework/router-guard/router-guard.js
@@ -44,7 +44,7 @@ const codeListLoader = NCP.loaderFactory.codeListLazy({
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
   try {
-    if (process.env.VUE_APP_ENV != 'development') {
+    if (process.env.VUE_APP_ENV !== 'development') {
       // 获取用户信息，同时通过此方法检测是否已经登录
       await store.dispatch('user/getCurrentUserInfo')
     }

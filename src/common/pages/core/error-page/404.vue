@@ -19,13 +19,13 @@
 
 <script>
 export default {
-  name: "Page404",
+  name: 'Page404',
   computed: {
-    message() {
-      return "对不起，访问的页面不存在。";
-    },
-  },
-};
+    message () {
+      return '对不起，访问的页面不存在。'
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

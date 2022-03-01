@@ -33,7 +33,7 @@ const actions = {
   // }
 
   // get user info
-  getCurrentUserInfo({ commit }) {
+  getCurrentUserInfo ({ commit }) {
     return new Promise((resolve, reject) => {
       getCurrentUserInfo()
         .then(user => {

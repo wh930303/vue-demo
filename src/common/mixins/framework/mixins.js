@@ -1,25 +1,25 @@
 /*
  * @Author: your name
  * @Date: 2022-02-25 20:32:37
- * @LastEditTime: 2022-02-25 21:30:04
- * @LastEditors: your name
+ * @LastEditTime: 2022-03-01 19:48:19
+ * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /vue-demo/src/common/mixins/framework/mixins.js
  */
 export default {
-  data() {
+  data () {
     return {
       tableMaxHeight: '500px'
     }
   },
-  mounted() {
+  mounted () {
     setTimeout(this.$autoInit)
     window.onresize = () => {
       this.$autoInit()
     }
   },
   methods: {
-    $getByClass(oParent, sClass) {
+    $getByClass (oParent, sClass) {
       let aResult = []
       let aEle = oParent.children
 
@@ -30,7 +30,7 @@ export default {
       }
       return aResult
     },
-    $getByClassForAll(oParent, sClass) {
+    $getByClassForAll (oParent, sClass) {
       let aResult = []
       let aEle = oParent.getElementsByTagName('div')
 
@@ -41,7 +41,7 @@ export default {
       }
       return aResult
     },
-    $autoInit() {
+    $autoInit () {
       const container = document.getElementById('adaptive-container')
       const autoPaneList = this.$getByClass(container, 'adaptive-pane-auto')
       const fixList = this.$getByClass(container, 'adaptive-pane-fix')
@@ -52,7 +52,7 @@ export default {
       }
       const autoPaneHeight =
         (document.documentElement.clientHeight - fixPartHeight) /
-        (autoPaneList.length == 0 ? 1 : autoPaneList.length) +
+        (autoPaneList.length === 0 ? 1 : autoPaneList.length) +
         'px'
 
       for (let i = 0; i < autoPaneList.length; i++) {
@@ -60,7 +60,7 @@ export default {
         this.$eltabPaneHeight(autoPaneList[i], autoPaneHeight)
       }
     },
-    $eltabPaneHeight(autoPane, autoPaneHeight) {
+    $eltabPaneHeight (autoPane, autoPaneHeight) {
       const eltabpaneList = this.$getByClassForAll(autoPane, 'el-tab-pane')
       const eltabsList = this.$getByClassForAll(autoPane, 'el-tabs__header')
       const elcollapseeltabsList = this.$getByClassForAll(
@@ -71,7 +71,7 @@ export default {
         (parseFloat(autoPaneHeight) -
           48 * elcollapseeltabsList.length -
           55 * eltabsList.length) /
-        (eltabsList.length == 0 ? 1 : eltabsList.length) +
+        (eltabsList.length === 0 ? 1 : eltabsList.length) +
         'px'
       for (let i = 0; i < eltabpaneList.length; i++) {
         eltabpaneList[i].style.height = autoZoneHeight
