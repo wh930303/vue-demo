@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-20 13:32:22
- * @LastEditTime: 2022-03-01 19:50:20
+ * @LastEditTime: 2022-03-07 09:52:03
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /data_check_UI/src/framework/router-guard/router-guard.js
@@ -29,15 +29,20 @@ import store from '@/store/store.js'
 const context = process.env.VUE_APP_BASE_URL
 
 // // 设置NCP默认数据转换器
-// console.log(NCP)
-// NCP.setGlobalTransform(res => {
-//   return res
+NCP.setGlobalTransform(res => {
+  return res
+})
+
+// const codeListLoader = NCP.loaderFactory.codeListLazy({
+//   method: 'POST',
+//   url: context + '/selectcodes/type',
+//   versionUrl: context + '/selectcodes/version'
 // })
 
 const codeListLoader = NCP.loaderFactory.codeListLazy({
   method: 'POST',
-  url: context + '/selectcodes/type',
-  versionUrl: context + '/selectcodes/version'
+  url: context + '/web/demo/infoCode/type',
+  versionUrl: context + '/web/demo/infoCode/version'
 })
 
 // 全局前置守卫

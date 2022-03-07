@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-20 13:32:22
- * @LastEditTime: 2022-03-01 19:49:18
+ * @LastEditTime: 2022-03-02 11:21:53
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /data_check_UI/src/framework/app-init.js
@@ -51,12 +51,12 @@ NCP.interceptor.response.use(
       return res
     } else {
       if (data.hasOwnProperty('code')) {
-        if (data.code === '-4') {
+        if (data.code === -4) {
           // 超时，直接将信息发送给 portal，hsa-seed 不做任何处理
           portalMessageSend.notifySessionTimeout({
             content: 'session timeout'
           })
-        } else if (data.code !== '0') {
+        } else if (data.code !== 0) {
           return Promise.reject(new Error(JSON.stringify(data) || 'Error'))
         } else {
           return data.data

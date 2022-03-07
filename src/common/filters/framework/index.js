@@ -1,10 +1,10 @@
 /*
  * @Author: your name
- * @Date: 2021-08-20 13:32:22
- * @LastEditTime: 2022-03-01 19:48:35
- * @LastEditors: Please set LastEditors
+ * @Date: 2022-02-25 20:32:37
+ * @LastEditTime: 2022-03-02 10:52:14
+ * @LastEditors: your name
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /data_check_UI/src/common/filters/framework/index.js
+ * @FilePath: /vue-demo/src/common/filters/framework/index.js
  */
 import dateFormat from 'dateformat'
 import NCP from '@ncp-web/core'
@@ -22,9 +22,7 @@ export function codeFilter (value, type) {
     type == null ||
     type === undefined ||
     type === ''
-  ) {
-    return ''
-  }
+  ) { return '' }
   type = type.toUpperCase()
   let res
   try {
@@ -34,22 +32,4 @@ export function codeFilter (value, type) {
   } catch (e) {
     return value
   }
-}
-
-export function getValueByKey (key, dataItem) {
-  if (
-    key == null ||
-    key === undefined ||
-    key === '') {
-    return ''
-  }
-  // 通过key获取value
-  var len = dataItem.length
-  for (var i = 0; i < len; i++) {
-    // console.log("数据：" + dataItem[i].key + ":" + dataItem[i].value);
-    if (dataItem[i].key === key) {
-      return dataItem[i].value
-    }
-  }
-  return key
 }

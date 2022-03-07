@@ -18,10 +18,18 @@ body,
 #app {
   background-color: #f1f2f6;
   box-sizing: border-box;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 0 16px;
   padding-top: 10px;
   overflow: auto;
+}
+.el-block:first-of-type {
+  padding-top: 0 !important;
+}
+.el-block {
+  padding: 0 0 !important;
+}
+.el-select-dropdown__item.selected {
+  background-color: transparent;
 }
 
 // .pwi-container {
@@ -38,11 +46,10 @@ body,
 // .el-select {
 //   width: 100%;
 // }
-// .el-pagination {
-//   // margin-top: -5px;
-//   // margin-bottom: 5px;
-//   margin-top: 5px;
-// }
+.el-pagination {
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
 
 // .el-dialog__title::before {
 //   background-color: #3ca0f6;
@@ -53,9 +60,7 @@ body,
 //   background-color: #3ca0f6;
 //   // background-color: #1b65b9;
 // }
-// .el-select-dropdown__item.selected {
-//   background-color: transparent;
-// }
+
 // .el-panel .el-collapse-item.el-toolbar .el-panel__toolbar {
 //   padding: 0 10px;
 // }

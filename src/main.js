@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-24 20:52:55
- * @LastEditTime: 2022-02-26 11:13:25
+ * @LastEditTime: 2022-03-06 17:49:49
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /vue-demo/src/main.js
@@ -11,6 +11,8 @@ import '@babel/polyfill'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import ncpElement from '@ncp-web/common-ui'
+import hsaElement from '@ncp-web/hsa-ui'
 import Element from 'element-ui'
 import LocalUI from '@ncp-web/element-ui-local'
 // 工程初始化
@@ -30,6 +32,8 @@ import NCP from '@ncp-web/core'
 // 医保局行业线工具
 import '@/common/utils/core/index.js'
 
+Vue.use(ncpElement)
+Vue.use(hsaElement)
 Vue.use(Element)
 Vue.use(LocalUI)
 
