@@ -2,7 +2,7 @@
   * @Author: wanghao
  * @Date: 2021-10-28
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-03-06 23:37:50
+ * @LastEditTime: 2022-03-07 17:05:18
  * @Description:
 -->
 <template>
@@ -108,7 +108,6 @@
                 </el-row>
               </el-form-item>
             </el-col>
-
             <template slot="footbar">
               <el-button type="blank" @click="handleReset">重置</el-button>
               <el-button type="primary" @click="handleQuery">查询</el-button>
@@ -258,6 +257,7 @@ export default {
     this.$refs.queryBox.unfold()
     this.initTableHeight()
     let that = this
+    // 当浏览器窗口大小改变的时候将会触发onresize事件
     window.onresize = () => {
       that.initTableHeight()
     }
@@ -269,6 +269,7 @@ export default {
       // let headerHeight = document.getElementById("mainBox").parentNode.previousSibling.clientHeight;
       // console.log(headerHeight)
       // let mainHeight = document.documentElement.clientHeight-headerHeight;
+      console.log(document.getElementById('mainBox'))
       let mainHeight = document.documentElement.clientHeight
       let queryBoxHeight = document.getElementById('mainBox').childNodes[0]
         .clientHeight

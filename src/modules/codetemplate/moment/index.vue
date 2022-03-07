@@ -2,7 +2,7 @@
   * @Author: wanghao
  * @Date: 2021-10-28
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-03-06 16:35:43
+ * @LastEditTime: 2022-03-07 17:11:55
  * @Description:
 -->
 <template>
@@ -19,7 +19,7 @@
             type="primary"
             class="link-text"
             :data-clipboard-text="childItem.copyValue"
-            @click="copy"
+            @click="copyText"
             >{{ childItem.lable }}</el-link
           >
           <div>{{ childItem.showValue }}</div>
@@ -48,7 +48,8 @@ export default {
     }
   },
   created () {
-    console.log(moment().valueOf())
+    console.info('moment() =>', moment())
+    console.info('new Date() =>', new Date())
     this.list = [
       {
         title: '日期格式化',
@@ -124,13 +125,12 @@ export default {
     this.list.forEach((item, index) => {
       this.activeNames.push(index)
     })
-    console.log(this.activeNames)
   },
   methods: {
     handleChange (val) {
       // console.log(val)
     },
-    copy () {
+    copyText () {
       var clipboard = new Clipboard('.link-text')
       clipboard.on('success', (e) => {
         this.$notify.success({

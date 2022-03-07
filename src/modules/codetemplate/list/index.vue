@@ -138,9 +138,6 @@ export default {
       this.diseListBList = []
       this.tableLoading = false
       this.editDialogVisible = false
-      this.dialogLoading = false
-      this.diseListBFormDisabled = false
-      this.diseListBFormEditDisabled = false
     },
     // 异步调用，一律采用 async/await 语法
     async handleQuery () {
@@ -406,102 +403,6 @@ export default {
         fixed: 'right'
       }
     ]
-    const diseListBRules = {
-      diseCode: [
-        { required: true, message: '请填写疾病编码', trigger: 'blur' },
-        { max: 100, message: '长度不能超过 100 个字符', trigger: 'blur' }
-      ],
-      diseName: [
-        { required: true, message: '请填写疾病名称', trigger: 'blur' },
-        { max: 50, message: '长度不能超过 50 个字符', trigger: 'blur' }
-      ],
-      icmDiseType: [
-        { required: true, message: '请选择中西医疾病类型', trigger: 'change' }
-      ],
-      begntime: [
-        {
-          required: true,
-          type: 'date',
-          message: '请选择开始时间',
-          trigger: 'change'
-        }
-      ],
-      endtime: [
-        {
-          required: true,
-          type: 'date',
-          message: '请选择结束时间',
-          trigger: 'change'
-        }
-      ],
-      valiFlag: [
-        { required: true, message: '请选择有效标志', trigger: 'change' }
-      ],
-      pinyin: [
-        { required: true, message: '请填写拼音助记码', trigger: 'blur' },
-        { max: 30, message: '长度不能超过 30 个字符', trigger: 'blur' }
-      ],
-      wubi: [
-        { required: true, message: '请填写五笔助记码', trigger: 'blur' },
-        { max: 30, message: '长度不能超过 30 个字符', trigger: 'blur' }
-      ],
-      engName: [
-        { required: true, message: '请填写英文名称', trigger: 'blur' },
-        { max: 100, message: '长度不能超过 100 个字符', trigger: 'blur' }
-      ],
-      memo: [
-        { required: true, message: '请填写备注', trigger: 'blur' },
-        { max: 500, message: '长度不能超过 500 个字符', trigger: 'blur' }
-      ],
-      rid: [
-        { required: true, message: '请填写唯一记录号', trigger: 'blur' },
-        { max: 40, message: '长度不能超过 40 个字符', trigger: 'blur' }
-      ],
-      crter: [
-        { required: true, message: '请填写创建人', trigger: 'blur' },
-        { max: 20, message: '长度不能超过 20 个字符', trigger: 'blur' }
-      ],
-      crterName: [
-        { required: true, message: '请填写创建人姓名', trigger: 'blur' },
-        { max: 50, message: '长度不能超过 50 个字符', trigger: 'blur' }
-      ],
-      crteTime: [
-        {
-          required: true,
-          type: 'date',
-          message: '请选择创建时间',
-          trigger: 'change'
-        }
-      ],
-      crteOptins: [
-        { required: true, message: '请填写创建经办机构', trigger: 'blur' },
-        { max: 20, message: '长度不能超过 20 个字符', trigger: 'blur' }
-      ],
-      opter: [
-        { required: true, message: '请填写经办人', trigger: 'blur' },
-        { max: 20, message: '长度不能超过 20 个字符', trigger: 'blur' }
-      ],
-      opterName: [
-        { required: true, message: '请填写经办人姓名', trigger: 'blur' },
-        { max: 50, message: '长度不能超过 50 个字符', trigger: 'blur' }
-      ],
-      optTime: [
-        {
-          required: true,
-          type: 'date',
-          message: '请选择经办时间',
-          trigger: 'change'
-        }
-      ],
-      optins: [
-        { required: true, message: '请填写经办机构', trigger: 'blur' },
-        { max: 20, message: '长度不能超过 20 个字符', trigger: 'blur' }
-      ],
-      ver: [
-        { required: true, message: '请填写版本号', trigger: 'blur' },
-        { max: 20, message: '长度不能超过 20 个字符', trigger: 'blur' }
-      ]
-    }
 
     // 所有的属性定义在 return 中
     return {
@@ -516,14 +417,10 @@ export default {
       diseListBTabColDefs: diseListBColDefs,
       diseListBList: [],
       tableLoading: false,
-      dialogLoading: false,
       buttonLoading: false,
       editDialogVisible: false,
-      diseListBFormDisabled: false,
-      diseListBFormEditDisabled: false,
       diseListBFormQuery: new DiseListBQueryClass(),
       diseListBFormEdit: new DiseListBClass(),
-      diseListBEditFormRules: diseListBRules,
       dialogTitle: '',
       operateType: ''
     }

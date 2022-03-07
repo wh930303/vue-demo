@@ -2,7 +2,7 @@
   * @Author: wanghao
  * @Date: 2021-10-28
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-03-07 00:11:46
+ * @LastEditTime: 2022-03-07 16:57:04
  * @Description:
 -->
 <template>
@@ -28,17 +28,12 @@ export default {
       msg: 'hi vue'
     }
   },
-  // computed: {
-  //   formData () {
-  //     return this.$store.getters.formData
-  //   }
-  // },
   // 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。
   beforeCreate () {
     console.log('beforeCreate')
-    setTimeout(() => {
-      this.msg = 'change vue'
-    }, 1000 * 3)
+    // setTimeout(() => {
+    //   this.msg = 'change vue'
+    // }, 1000 * 3)
   },
   /* 在实例创建完成后被立即调用。
   在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。
